@@ -2,21 +2,10 @@
 # -*- coding: utf-8 -*-
 # This program is dedicated to the public domain under the CC0 license.
 
-"""
-Simple Bot to reply to Telegram messages.
-
-First, a few handler functions are defined. Then, those functions are passed to
-the Dispatcher and registered at their respective places.
-Then, the bot is started and runs until we press Ctrl-C on the command line.
-
-Usage:
-Basic Echobot example, repeats messages.
-Press Ctrl-C on the command line or send a signal to the process to stop the
-bot.
-"""
 
 import logging
 import re
+import os
 
 from telegram.ext import Updater, MessageHandler, Filters
 
@@ -90,7 +79,10 @@ def main():
 
     print("Running...")
     # Start the Bot
-    updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
+
+    # updater.bot.set_webhook(url=settings.WEBHOOK_URL)
+    updater.bot.set_webhook("dad-bot" + "1602009491:AAFoJFTDd3t5IL2KiRLr7S_Y0Ddn8nal65E")
 
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
