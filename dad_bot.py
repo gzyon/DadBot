@@ -48,7 +48,7 @@ def dad_reply(update, context):
     
     elif imsub3 in message:
         subindex = message.index(imsub3)
-        identity = message[subindex + 2:]
+        identity = message[subindex + 3:]
         print(identity)
         update.message.reply_text("Hi" + identity + ", I'm Dad!")
 
