@@ -22,7 +22,7 @@ def dad_reply(update, context):
     # function one: 'hi {}, im dad' 
 
     text = update.message.text
-    text2 = text.lower()
+    text2 = re.sub('[^A-Za-z0-9]+', ' ', text)
     words = text.lower().split()
 
     for word in words:
@@ -34,12 +34,13 @@ def dad_reply(update, context):
             identity = text[subindex + 2:]
             print(identity)
             update.message.reply_text("Hi" + identity + ", I'm Dad!")
-        elif "i'm" in text:
+        elif "i m" in text:
+            print("detected")
             subindex = text.index("i'm")
             identity = text[subindex + 3:]
             print(identity)
             update.message.reply_text("Hi" + identity + ", I'm Dad!")
-        elif "I'm" in text:
+        elif "I m" in text:
             print("detected")
             subindex = text.index("I'm")
             identity = text[subindex + 3:]
