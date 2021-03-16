@@ -40,12 +40,6 @@ def dad_reply(update, context):
             identity = text[subindex + 3:]
             print(identity)
             update.message.reply_text("Hi" + identity + ", I'm Dad!")
-        elif "I m" in text2:
-            print("detected")
-            subindex = text2.index("I m")
-            identity = text[subindex + 3:]
-            print(identity)
-            update.message.reply_text("Hi" + identity + ", I'm Dad!")
 
     if "i" in words and "am" in words:
         subindex = text.index("am")
