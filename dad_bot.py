@@ -19,8 +19,6 @@ logger = logging.getLogger(__name__)
 
 def dad_reply(update, context):
 
-    # function one: 'hi {}, im dad' 
-
     text = update.message.text
     text2 = re.sub('[^A-Za-z0-9]+', ' ', text.lower())
     print(text2)
@@ -31,11 +29,14 @@ def dad_reply(update, context):
 
     print(words)
 
+    # function one: 'hi {}, im dad' 
+
     if "im" in words:
         subindex = text2.index("im")
         identity = text[subindex + 2:]
         print(identity)
         update.message.reply_text("Hi" + identity + ", I'm Dad!")
+
     elif "i m" in words:
         print("detected")
         subindex = text2.index("i m")
@@ -43,49 +44,29 @@ def dad_reply(update, context):
         print(identity)
         update.message.reply_text("Hi" + identity + ", I'm Dad!")
 
-    if "i" in words and "am" in words:
+    elif "i" in words and "am" in words:
         subindex = text.index("am")
         identity = text[subindex + 2:]
         print(identity)
         update.message.reply_text("Hi" + identity + ", I'm Dad!")
-
-def test_function(update, context):
-    if update.message.text == 'hi':
-        update.message.reply_text("hello!")
-
-    # message = update.message.text.lower()
-    # message = re.sub('[^A-Za-z0-9]+', ' ', message)
-    # print(message)
-    # imsub1 = "im "
-    # imsub4 = " im"
-    # imsub2 = "i am"
-    # imsub3 = "i m "
-    # imsub5 = " i m"
-    # dad = "dad"
-
-    # if imsub1 in message or imsub4 in message:
-    #     subindex = message.index(imsub1)
-    #     identity = message[subindex + 2:]
-    #     print(identity)
-    #     update.message.reply_text("Hi" + identity + ", I'm Dad!")
-
-    # elif imsub2 in message:
-    #     subindex = message.index(imsub2)
-    #     identity = message[subindex + 4:]
-    #     print(identity)
-    #     update.message.reply_text("Hi" + identity + ", I'm Dad!")
     
-    # elif imsub3 in message or imsub5 in message:
-    #     subindex = message.index(imsub3)
-    #     identity = message[subindex + 3:]
-    #     print(identity)
-    #     update.message.reply_text("Hi" + identity + ", I'm Dad!")
-    
-    # elif dad in message:
-    #     update.message.reply_text("Ya?")
+    elif "imdad" in text.lower().strip():
+        update.message.reply_text("No you're not, I'm Dad.")
 
-    # message2 = update.message.text.lower()
-    # message2 = re.sub('[^A-Za-z0-9]+', '', message2)
+    # function 2: dad responds to someone calling him/saying hi or bye
+
+    dad_greetings = text.lower().strip()
+
+    if dad_greetings == "dad":
+        update.message.reply_text("Simi daiji? I busy you know.")
+
+    elif dad_greetings == "hidad" or dad_greetings == "hellodad":
+        update.message.reply_text("Sorry ah, laopei busy, go entertain yourself first.")
+
+    elif dad_greetings == "byedad":
+        update.message.reply_text("Ok come home by 10pm ah.")
+
+    
     # shutupsub1 = "shutup"
     # shutupsub2 = "stfu"
     # shutupsub3 = "shaddup"
