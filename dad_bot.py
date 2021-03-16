@@ -31,7 +31,10 @@ def dad_reply(update, context):
 
     # function one: 'hi {}, im dad' 
 
-    if "im" in words:
+    if "im dad" in text.lower().strip():
+        update.message.reply_text("No you're not, I'm Dad.")
+
+    elif "im" in words:
         subindex = text2.index("im")
         identity = text[subindex + 2:]
         print(identity)
@@ -50,7 +53,7 @@ def dad_reply(update, context):
         print(identity)
         update.message.reply_text("Hi" + identity + ", I'm Dad!")
     
-    elif "imdad" in text.lower().strip():
+    if "im dad" in text.lower().strip():
         update.message.reply_text("No you're not, I'm Dad.")
 
     # function 2: dad responds to someone calling him/saying hi or bye
@@ -60,10 +63,10 @@ def dad_reply(update, context):
     if dad_greetings == "dad":
         update.message.reply_text("Simi daiji? I busy you know.")
 
-    elif dad_greetings == "hidad" or dad_greetings == "hellodad":
+    elif dad_greetings == "hi dad" or dad_greetings == "hello dad":
         update.message.reply_text("Sorry ah, laopei busy, go entertain yourself first.")
 
-    elif dad_greetings == "byedad":
+    elif dad_greetings == "bye dad":
         update.message.reply_text("Ok come home by 10pm ah.")
 
     
