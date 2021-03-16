@@ -31,7 +31,7 @@ def dad_reply(update, context):
 
     # function one: 'hi {}, im dad' 
 
-    if "im dad" in text.lower().strip():
+    if "im dad" in text.lower().strip() or "i'm dad" in text.lower().strip():
         update.message.reply_text("No you're not, I'm Dad.")
 
     elif "im" in words:
