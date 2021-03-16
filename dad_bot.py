@@ -26,8 +26,8 @@ def dad_reply(update, context):
     print(text2)
     words = text.lower().split()
 
-    for word in words:
-        word = re.sub('[^A-Za-z0-9]+', ' ', word)
+    for i in range(len(words)):
+        words[i] = re.sub('[^A-Za-z0-9]+', ' ', words[i])
 
     print(words)
 
