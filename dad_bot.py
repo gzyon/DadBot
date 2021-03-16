@@ -30,19 +30,18 @@ def dad_reply(update, context):
         word = re.sub('[^A-Za-z0-9]+', '', word)
 
     print(words)
-    
+
     if "im" in words:
-        if "im" in text2:
-            subindex = text2.index("im")
-            identity = text[subindex + 2:]
-            print(identity)
-            update.message.reply_text("Hi" + identity + ", I'm Dad!")
-        elif "i m" in text2:
-            print("detected")
-            subindex = text2.index("i m")
-            identity = text[subindex + 3:]
-            print(identity)
-            update.message.reply_text("Hi" + identity + ", I'm Dad!")
+        subindex = text2.index("im")
+        identity = text[subindex + 2:]
+        print(identity)
+        update.message.reply_text("Hi" + identity + ", I'm Dad!")
+    elif "i'm" in words:
+        print("detected")
+        subindex = text2.index("i m")
+        identity = text[subindex + 3:]
+        print(identity)
+        update.message.reply_text("Hi" + identity + ", I'm Dad!")
 
     if "i" in words and "am" in words:
         subindex = text.index("am")
