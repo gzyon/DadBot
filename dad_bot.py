@@ -29,6 +29,8 @@ def dad_reply(update, context):
     for word in words:
         word = re.sub('[^A-Za-z0-9]+', '', word)
 
+    print(words)
+    
     if "im" in words:
         if "im" in text2:
             subindex = text2.index("im")
