@@ -15,6 +15,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
+PORT = int(os.environ.get('PORT', '8443'))
+
 def dad_reply(update, context):
     message = update.message.text.lower()
     message = re.sub('[^A-Za-z0-9]+', ' ', message)
@@ -79,7 +81,7 @@ def main():
 
     print("Running...")
     # Start the Bot
-    updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
+    updater.start_webhook(listen="0.0.0.0", port=PORT, url_path="1602009491:AAFoJFTDd3t5IL2KiRLr7S_Y0Ddn8nal65E")
 
     # updater.bot.set_webhook(url=settings.WEBHOOK_URL)
     updater.bot.set_webhook("https://stupid-dad-bot.herokuapp.com/" + "1602009491:AAFoJFTDd3t5IL2KiRLr7S_Y0Ddn8nal65E")
