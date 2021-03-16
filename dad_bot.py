@@ -50,11 +50,16 @@ def dad_reply(update, context):
     shutupsub3 = "shaddup"
     shutupsub4 = "shutthefuckup"
     dad = "imdad"
+    hidad1 = "hidad"
+    hidad2 = "hello dad"
     if shutupsub1 in message2 or shutupsub2 in message2 or shutupsub3 in message or shutupsub4 in message:
         update.message.reply_text("Listen here " + update.message.from_user['first_name'] + ", I will not tolerate you saying the words that consist any variation of the letters 's h u t  u p' being said in this server, so take your own advice and close thine mouth in the name of the christian minecraft server owner.")
     
     if dad in message2:
         update.message.reply_text("No you're not, I'm Dad.")
+
+    if hidad1 in message2 or hidad2 in message2:
+        update.message.reply_text("Sorry ah, laopei busy, go entertain yourself first.")
 
     message3 = update.message.text.lower()
     message3 = re.sub('[^A-Za-z0-9]+', '', message3)
