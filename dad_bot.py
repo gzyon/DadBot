@@ -22,15 +22,15 @@ def dad_reply(update, context):
     # function one: 'hi {}, im dad' 
 
     text = update.message.text
-    text2 = re.sub('[^A-Za-z0-9]+', ' ', text)
+    text2 = re.sub('[^A-Za-z0-9]+', ' ', text.lower())
     words = text.lower().split()
 
     for word in words:
         word = re.sub('[^A-Za-z0-9]+', '', word)
 
     if "im" in words:
-        if "im" in text:
-            subindex = text.index("im")
+        if "im" in text2:
+            subindex = text2.index("im")
             identity = text[subindex + 2:]
             print(identity)
             update.message.reply_text("Hi" + identity + ", I'm Dad!")
@@ -44,11 +44,6 @@ def dad_reply(update, context):
             print("detected")
             subindex = text2.index("I m")
             identity = text[subindex + 3:]
-            print(identity)
-            update.message.reply_text("Hi" + identity + ", I'm Dad!")
-        elif "Im" in text:
-            subindex = text.index("Im")
-            identity = text[subindex + 2:]
             print(identity)
             update.message.reply_text("Hi" + identity + ", I'm Dad!")
 
