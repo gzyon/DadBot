@@ -6,5 +6,6 @@
 - "I'm/I am (insert text)"
 - The words "play", "playing", "playin"
 - any variation of "shut up"
+- "Hi/Hello Dad"
 
 Go ham.
