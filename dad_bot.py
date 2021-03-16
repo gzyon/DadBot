@@ -23,6 +23,7 @@ def dad_reply(update, context):
 
     text = update.message.text
     text2 = re.sub('[^A-Za-z0-9]+', ' ', text.lower())
+    print(text2)
     words = text.lower().split()
 
     for word in words:
