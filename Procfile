@@ -1,1 +1,1 @@
-web:  python3 dad_bot.py
+worker:  python3 dad_bot.py
