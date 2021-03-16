@@ -49,6 +49,10 @@ def dad_reply(update, context):
         print(identity)
         update.message.reply_text("Hi" + identity + ", I'm Dad!")
 
+def test_function(update, context):
+    if update.message.text == 'hi':
+        update.message.reply_text("hello!")
+
     # message = update.message.text.lower()
     # message = re.sub('[^A-Za-z0-9]+', ' ', message)
     # print(message)
@@ -126,6 +130,7 @@ def main():
     dp = updater.dispatcher
 
     dp.add_handler(MessageHandler(Filters.text, dad_reply))
+    dp.add_handler(MessageHandler(Filters.text, test_function))
 
     # log all errors
     dp.add_error_handler(error)
