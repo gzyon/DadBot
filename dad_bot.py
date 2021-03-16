@@ -21,11 +21,13 @@ def dad_reply(update, context):
     message = update.message.text.lower()
     message = re.sub('[^A-Za-z0-9]+', ' ', message)
     print(message)
-    imsub1 = "im"
+    imsub1 = "im "
+    imsub4 = " im"
     imsub2 = "i am"
-    imsub3 = "i m"
+    imsub3 = "i m "
+    imsub5 = " i m"
 
-    if imsub1 in message:
+    if imsub1 in message or imsub4 in message:
         subindex = message.index(imsub1)
         identity = message[subindex + 2:]
         print(identity)
@@ -37,7 +39,7 @@ def dad_reply(update, context):
         print(identity)
         update.message.reply_text("Hi" + identity + ", I'm Dad!")
     
-    elif imsub3 in message:
+    elif imsub3 in message or imsub5 in message:
         subindex = message.index(imsub3)
         identity = message[subindex + 3:]
         print(identity)
