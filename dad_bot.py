@@ -111,7 +111,6 @@ def main():
     dp = updater.dispatcher
 
     dp.add_handler(MessageHandler(Filters.text, dad_reply))
-    dp.add_handler(MessageHandler(Filters.text, test_function))
 
     # log all errors
     dp.add_error_handler(error)
