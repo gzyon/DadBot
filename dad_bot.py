@@ -67,7 +67,7 @@ def dad_reply(update, context):
 
     # function 3: dad responds to rude messages
 
-    shut_up_text = ["shutup", "stfu", "shutthefuckup", "shaddup", "fucku", "fuckyou", "fuk", "fuku", "fukyou", "fuck", "fku", "fk", "fkyou", "fak", "fok", "wtf", "bij", "bitch", "stoopid", "stoopood", "dumbass"]
+    shut_up_text = ["shutup", "stfu", "shutthefuckup", "shaddup", "fucku", "fuckyou", "fuk", "fuku", "fukyou", "fuck", "fku", "fk", "fkyou", "fak", "fok", "wtf", "bij", "bitch", "stoopid", "stoopood", "dumbass", "fck"]
 
     rude_text = re.sub('[^A-Za-z0-9]+', '', text.lower())
 
