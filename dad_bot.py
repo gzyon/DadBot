@@ -93,27 +93,32 @@ def dad_reply(update, context):
 def dad_joke(update, context):
     print("dad joke triggered")
 
-    joke_files = ["reddit_jokes", "stupidstuff", "wocka"]
-    random_file = random.randint(0, len(joke_files))
-    joke_file = open('joke-dataset/{}.json', str(random_file))
+    try:
+        joke_files = ["reddit_jokes", "stupidstuff", "wocka"]
+        random_file = random.randint(0, len(joke_files))
+        joke_file = open('joke-dataset/{}.json', str(random_file))
 
-    jokes = json.load(joke_file)
-    random_joke = random.randint(0, len(jokes))
+        jokes = json.load(joke_file)
+        random_joke = random.randint(0, len(jokes))
 
-    if random_file == 0:
-        joke = jokes[random_joke]['title'] + "\n" + jokes[random_joke]['body']
+        if random_file == 0:
+            joke = jokes[random_joke]['title'] + "\n" + jokes[random_joke]['body']
 
-    elif random_file == 1:
-        joke = jokes[random_joke]['body']
+        elif random_file == 1:
+            joke = jokes[random_joke]['body']
 
-    elif random_file == 2:
-        joke = jokes[random_joke]['body']
+        elif random_file == 2:
+            joke = jokes[random_joke]['body']
 
-    print(joke)
-    
-    context.bot.send_message(chat_id=update.effective_chat.id, text=joke)
+        print(joke)
+        
+        context.bot.send_message(chat_id=update.effective_chat.id, text=joke)
 
-    joke_file.close()
+        joke_file.close()
+
+    except Exception as e:
+        print(e)
+
 
 def error(update, context):
     """Log Errors caused by Updates."""
