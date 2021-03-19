@@ -5,7 +5,7 @@
 ### Messages that can trigger the bot:
 - "I'm/I am (insert text)"
 - The words "play", "playing", "playin"
-- any variation of "shut up"
+- any variation of "shut up"/"fuck"
 - "Hi/Hello Dad"
 
 Go ham.
