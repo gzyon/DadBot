@@ -6,8 +6,10 @@
 import logging
 import re
 import os
+import json
+import random
 
-from telegram.ext import Updater, MessageHandler, Filters
+from telegram.ext import Updater, MessageHandler, Filters, CommandHandler
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -84,17 +86,37 @@ def dad_reply(update, context):
     # function 4: "u winnin son"
 
     playsub1 = "play"
-    playsub2 = "playing"
     playsub3 = "playin"
 
     print(text3)
     
-    if playsub2 in text3 or playsub3 in text3:
+    if playsub3 in text3:
         update.message.reply_text("Are ya winnin' son?")
     
     elif playsub1 in text3:
         update.message.reply_text("I hope ya win, son!")
 
+def dad_joke(update, context):
+    joke_files = ["reddit_jokes", "stupidstuff", "wocka"]
+    random_file = random.randint(len(joke_files))
+    joke_file = open('joke-dataset/{}.json', random_file)
+
+    jokes = json.load(joke_file)
+
+    if random_file == 0:
+        random_joke = random.randint(len(jokes))
+        joke = jokes[random_joke]['title'] + "\n" + jokes[random_joke]['body']
+        context.bot.send_message(chat_id=update.effective_chat.id, text=joke)
+
+    elif random_file == 1:
+        random_joke = random.randint(len(jokes))
+        joke = jokes[random_joke]['body']
+        context.bot.send_message(chat_id=update.effective_chat.id, text=joke)
+
+    elif random_file == 2:
+        random_joke = random.randint(len(jokes))
+        joke = jokes[random_joke]['body']
+        context.bot.send_message(chat_id=update.effective_chat.id, text=joke)
 
 def error(update, context):
     """Log Errors caused by Updates."""
@@ -108,6 +130,8 @@ def main():
     dp = updater.dispatcher
 
     dp.add_handler(MessageHandler(Filters.text, dad_reply))
+
+    dp.add_handler(CommandHandler('dadjoke', dad_joke))
 
     # log all errors
     dp.add_error_handler(error)
