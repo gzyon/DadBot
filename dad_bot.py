@@ -102,7 +102,7 @@ def dad_joke(update, context):
         joke_file = open(file_directory, "r")
 
         jokes = json.load(joke_file)
-        print(jokes)
+        print(type(jokes))
         random_joke = random.randint(0, len(jokes))
 
         if random_file == 0:
