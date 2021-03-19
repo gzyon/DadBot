@@ -69,30 +69,32 @@ def dad_reply(update, context):
 
     shut_up_text = ["shutup", "stfu", "shutthefuckup", "shaddup", "fucku", "fuckyou", "fuk", "fuku", "fukyou", "fuck", "fku", "fk", "fkyou", "fak", "fok", "wtf", "bij", "bitch", "stoopid", "stoopood", "dumbass", "fck"]
 
-    rude_text = re.sub('[^A-Za-z0-9]+', '', text.lower())
+    text3 = re.sub('[^A-Za-z0-9]+', '', text.lower())
 
     for variation in shut_up_text:
-        if variation in rude_text:
+        if variation in text3:
             update.message.reply_text("Listen here " + update.message.from_user['first_name'] + ", I will not tolerate any vulgarities being said in this chat, so take your own advice and close thine mouth in the name of the christian minecraft server owner.")
 
     # special for felice
 
     if update.message.from_user['username'].lower() == "feliceho":
-        if "fork" in rude_text:
+        if "fork" in text3:
             update.message.reply_text("Listen here " + update.message.from_user['first_name'] + ", I will not tolerate any vulgarities being said in this chat, so take your own advice and close thine mouth in the name of the christian minecraft server owner.")
 
+    # function 4: "u winnin son"
 
-    # message3 = update.message.text.lower()
-    # message3 = re.sub('[^A-Za-z0-9]+', '', message3)
-    # playsub1 = "play"
-    # playsub2 = "playing"
-    # playsub3 = "playin"
+    playsub1 = "play"
+    playsub2 = "playing"
+    playsub3 = "playin"
+
+    print(text3)
     
-    # if playsub2 in message3 or playsub3 in message3:
-    #     update.message.reply_text("Are ya winnin' son?")
+    if playsub2 in text3 or playsub3 in text3:
+        update.message.reply_text("Are ya winnin' son?")
     
-    # elif playsub1 in message3:
-    #     update.message.reply_text("I hope ya win, son!")
+    elif playsub1 in text3:
+        update.message.reply_text("I hope ya win, son!")
+
 
 def error(update, context):
     """Log Errors caused by Updates."""
