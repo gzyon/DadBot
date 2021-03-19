@@ -23,13 +23,10 @@ def dad_reply(update, context):
 
     text = update.message.text
     text2 = re.sub('[^A-Za-z0-9]+', ' ', text.lower())
-    print(text2)
     words = text.lower().split()
 
     for i in range(len(words)):
         words[i] = re.sub('[^A-Za-z0-9]+', ' ', words[i])
-
-    print(words)
 
     # function one: 'hi {}, im dad' 
 
@@ -39,19 +36,16 @@ def dad_reply(update, context):
     elif "im" in words:
         subindex = text2.index("im")
         identity = text[subindex + 2:]
-        print(identity)
         update.message.reply_text("Hi" + identity + ", I'm Dad!")
 
     elif "i m" in words:
         subindex = text2.index("i m")
         identity = text[subindex + 3:]
-        print(identity)
         update.message.reply_text("Hi" + identity + ", I'm Dad!")
 
     elif "i" in words and "am" in words:
         subindex = text.index("am")
         identity = text[subindex + 2:]
-        print(identity)
         update.message.reply_text("Hi" + identity + ", I'm Dad!")
 
     # function 2: dad responds to someone calling him/saying hi or bye
@@ -97,6 +91,8 @@ def dad_reply(update, context):
         update.message.reply_text("I hope ya win, son!")
 
 def dad_joke(update, context):
+    print("dad joke triggered")
+
     joke_files = ["reddit_jokes", "stupidstuff", "wocka"]
     random_file = random.randint(len(joke_files))
     joke_file = open('joke-dataset/{}.json', random_file)
@@ -106,17 +102,18 @@ def dad_joke(update, context):
     if random_file == 0:
         random_joke = random.randint(len(jokes))
         joke = jokes[random_joke]['title'] + "\n" + jokes[random_joke]['body']
-        context.bot.send_message(chat_id=update.effective_chat.id, text=joke)
 
     elif random_file == 1:
         random_joke = random.randint(len(jokes))
         joke = jokes[random_joke]['body']
-        context.bot.send_message(chat_id=update.effective_chat.id, text=joke)
 
     elif random_file == 2:
         random_joke = random.randint(len(jokes))
         joke = jokes[random_joke]['body']
-        context.bot.send_message(chat_id=update.effective_chat.id, text=joke)
+
+    print(joke)
+    
+    context.bot.send_message(chat_id=update.effective_chat.id, text=joke)
 
 def error(update, context):
     """Log Errors caused by Updates."""
