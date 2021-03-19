@@ -96,14 +96,14 @@ def dad_joke(update, context):
 
     try:
         joke_files = ["reddit_jokes", "stupidstuff", "wocka"]
-        random_file = random.randint(0, len(joke_files))
+        random_file = random.randrange(0, len(joke_files))
         file_directory = 'joke-dataset/' + joke_files[random_file] +'.json'
         print(file_directory)
         joke_file = open(file_directory, "r")
 
         jokes = json.load(joke_file)
         print(type(jokes))
-        random_joke = random.randint(0, len(jokes))
+        random_joke = random.randrange(0, len(jokes))
 
         if random_file == 0:
             joke = jokes[random_joke]['title'] + "\n" + jokes[random_joke]['body']
