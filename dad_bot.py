@@ -69,8 +69,10 @@ def dad_reply(update, context):
 
     shut_up_text = ["shutup", "stfu", "shutthefuckup", "shaddup", "fucku", "fuckyou", "fuk", "fuku", "fukyou", "fuck"]
 
+    rude_text = re.sub('[^A-Za-z0-9]+', '', text.lower())
+
     for variation in shut_up_text:
-        if variation in text2:
+        if variation in rude_text:
             update.message.reply_text("Listen here " + update.message.from_user['first_name'] + ", I will not tolerate any vulgarities being said in this chat, so take your own advice and close thine mouth in the name of the christian minecraft server owner.")
 
     # message3 = update.message.text.lower()
