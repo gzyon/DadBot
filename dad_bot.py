@@ -8,6 +8,7 @@ import re
 import os
 import json
 import random
+import sys
 
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler
 
@@ -96,7 +97,9 @@ def dad_joke(update, context):
     try:
         joke_files = ["reddit_jokes", "stupidstuff", "wocka"]
         random_file = random.randint(0, len(joke_files))
-        joke_file = open('joke-dataset/' + joke_files[random_file] +'.json', "r")
+        file_directory = os.path.join(sys.path[0], 'joke-dataset/' + joke_files[random_file] +'.json')
+        print(file_directory)
+        joke_file = open(file_directory, "r")
 
         jokes = json.load(joke_file)
         random_joke = random.randint(0, len(jokes))
