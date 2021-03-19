@@ -115,6 +115,8 @@ def dad_joke(update, context):
     
     context.bot.send_message(chat_id=update.effective_chat.id, text=joke)
 
+    joke_file.close()
+
 def error(update, context):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
@@ -125,10 +127,8 @@ def main():
     updater = Updater("1602009491:AAFoJFTDd3t5IL2KiRLr7S_Y0Ddn8nal65E", use_context=True)
 
     dp = updater.dispatcher
-
-    dp.add_handler(MessageHandler(Filters.text, dad_reply))
-
     dp.add_handler(CommandHandler('dadjoke', dad_joke))
+    dp.add_handler(MessageHandler(Filters.text, dad_reply))
 
     # log all errors
     dp.add_error_handler(error)
