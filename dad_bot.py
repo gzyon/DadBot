@@ -97,7 +97,7 @@ def dad_joke(update, context):
     try:
         joke_files = ["reddit_jokes", "stupidstuff", "wocka"]
         random_file = random.randint(0, len(joke_files))
-        file_directory = os.path.join(sys.path[0], 'joke-dataset/' + joke_files[random_file] +'.json')
+        file_directory = '/joke-dataset/' + joke_files[random_file] +'.json'
         print(file_directory)
         joke_file = open(file_directory, "r")
 
